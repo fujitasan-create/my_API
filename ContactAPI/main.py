@@ -4,8 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import APIRouter
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
-from database import SessionLocal,engine
-import models
+from .database import SessionLocal,engine
+from . import models
 import secrets
 from dotenv import load_dotenv
 import os
