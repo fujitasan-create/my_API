@@ -16,7 +16,7 @@ router = APIRouter()
 @router.get("/predict")
 def predict_stock(
     ticker: str = Query(..., description="銘柄コード（例：AAPL）"),
-    threshold: float = Query(0.4, ge=0.0, le=1.0, description="予測のしきい値（0〜1）")
+    threshold: float = Query(0.25, ge=0.0, le=1.0, description="予測のしきい値（0〜1）")
 ):
     try:
         df = yf.download(ticker, start="2022-01-01", end="2025-06-13")

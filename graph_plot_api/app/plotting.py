@@ -14,11 +14,6 @@ font_path = os.path.abspath(
 jp_font = fm.FontProperties(fname=font_path)
 plt.rcParams['font.family'] = jp_font.get_name()
 
-# デバッグ用に確認！
-print("指定フォント名:", jp_font.get_name())
-print("matplotlibが実際に使ってるフォント:", plt.rcParams['font.family'])
-
-
 from .utils import (
     calc_rsi, calc_bb, calc_macd, calc_sma, calc_ema
 )
