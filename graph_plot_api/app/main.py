@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app import plotting, search
+from . import plotting, search
 
 app = FastAPI(
     title="Graph Plot API",
