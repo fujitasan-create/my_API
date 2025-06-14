@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 # 各APIのrouterをインポート（router = APIRouter() が定義されているもの）
 from ContactAPI import main as contact_router
-from graph_plot_api.app import main as plot_router
+from graph_plot_api.app import plotting as plot_router
 from graph_plot_api.app import search as search_router
 from news_sentiment_api.app.routers import analyzer as sentiment_router
 
