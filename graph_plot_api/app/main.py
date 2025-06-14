@@ -20,3 +20,5 @@ app.add_middleware(
 # ルーター登録
 app.include_router(search.router)
 app.include_router(plotting.router)
+
+router = app
