@@ -27,7 +27,7 @@ def predict_stock(
 
         # テクニカル指標（utils.py を使う）
         df["RSI"] = calc_rsi(df["Close"])
-        df["macd"] = calc_macd(df["Close"])
+        df["macd"], df["macdsignal"], df["macdhist"] = calc_macd(df["Close"])
         df["sma5"] = calc_sma(df["Close"], 5)
         df["sma25"] = calc_sma(df["Close"], 25)
         df["ema12"] = calc_ema(df["Close"], 12)
@@ -37,7 +37,7 @@ def predict_stock(
 
         # 特徴量と目的変数
         X = df[["Open", "Close", "BTY", "smax", "sma5", "sma25", "ema12",
-                "macd", "RSI", "upper", "lower", "Volume"]]
+                "macd", "macdsignal", "macdhist","RSI", "upper", "lower", "Volume"]]
         y = df["target"]
 
         df_model = pd.concat([X, y], axis=1).dropna()
