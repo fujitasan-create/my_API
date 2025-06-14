@@ -1,0 +1,35 @@
+# Python バイトコード・キャッシュ
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+.Python
+
+# 仮想環境ディレクトリ
+venv/
+env/
+.venv/
+ENV/
+
+# エディタ・IDE設定
+.vscode/
+.idea/
+
+# Jupyter関連
+.ipynb_checkpoints/
+
+# 環境変数・ログ・DBファイル
+.env
+*.log
+*.db
+
+# 個別DBファイル（任意で残したい場合は削除しないでOK）
+contacts.db
+
+# Render構成ファイル（共有しないなら）
+render.yaml
+
+desktop.ini
+*.ico
