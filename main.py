@@ -6,6 +6,7 @@ from ContactAPI import main as contact_router
 from graph_plot_api.app import plotting as plot_router
 from graph_plot_api.app import search as search_router
 from news_sentiment_api.app.routers import analyzer as sentiment_router
+from openai_api import router as openai_router
 
 app = FastAPI(
     title="かぶちゃんAPI",
@@ -27,3 +28,4 @@ app.include_router(contact_router.router, prefix="/contact", tags=["Contact"])
 app.include_router(plot_router.router, prefix="/plot", tags=["Graph Plot"])
 app.include_router(search_router.router, prefix="/search", tags=["Search"])
 app.include_router(sentiment_router.router, prefix="/sentiment", tags=["Sentiment"])
+app.include_router(openai_router, prefix="/openai")
