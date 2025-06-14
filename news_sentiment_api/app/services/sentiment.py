@@ -1,5 +1,5 @@
 import os
-from app.config import SENTIMENT_DICT_PATH
+from ..config import SENTIMENT_DICT_PATH
 
 POSITIVE_CATEGORIES = ['suki', 'yasu', 'yorokobi', 'odoroki']
 NEGATIVE_CATEGORIES = ['ikari', 'iya', 'kowa', 'aware', 'haji', 'takaburi']

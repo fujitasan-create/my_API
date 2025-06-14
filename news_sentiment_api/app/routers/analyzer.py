@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.services.scraper import scrape_titles_yahoo_business
-from app.services.sentiment import load_sentiment_words, compute_emotion_score
+from ..services.scraper import scrape_titles_yahoo_business
+from ..services.sentiment import load_sentiment_words, compute_emotion_score
 import random
 
 router = APIRouter()
