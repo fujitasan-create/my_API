@@ -19,7 +19,7 @@ print("指定フォント名:", jp_font.get_name())
 print("matplotlibが実際に使ってるフォント:", plt.rcParams['font.family'])
 
 
-from app.utils import (
+from .utils import (
     calc_rsi, calc_bb, calc_macd, calc_sma, calc_ema
 )
 
