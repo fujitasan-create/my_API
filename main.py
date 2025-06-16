@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi.middleware import SlowAPIMiddleware
+from slowapi.errors import RateLimitExceeded
+from fastapi.responses import JSONResponse
+from fastapi import Request
+
 
 # 各APIのrouterをインポート（router = APIRouter() が定義されているもの）
 from ContactAPI import main as contact_router
@@ -21,6 +25,14 @@ app = FastAPI(
 app.state.limiter = limiter
 # CORS設定（必要に応じて変更）
 app.add_middleware(SlowAPIMiddleware)
+
+@app.exception_handler(RateLimitExceeded)
+async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
+    return JSONResponse(
+        status_code=429,
+        content={"message": "かぶちゃんは疲れているみたい。しばらくしてから試してね。"},
+    )
+
 
 app.add_middleware(
     CORSMiddleware,

@@ -12,14 +12,6 @@ limiter = Limiter(key_func=get_remote_address)
 
 router = APIRouter()
 
-@router.exception_handler(RateLimitExceeded)
-async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
-    return JSONResponse(
-        status_code=429,
-        content={"message": "かぶちゃんは疲れているみたい。しばらくしてから試してね。"},
-    )
-
-
 class PromptRequest(BaseModel):
     prompt: str
     model: str = "gpt-3.5-turbo"  
