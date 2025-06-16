@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from slowapi.middleware import SlowAPIMiddleware
 
 # 各APIのrouterをインポート（router = APIRouter() が定義されているもの）
 from ContactAPI import main as contact_router
@@ -9,6 +10,7 @@ from graph_plot_api.app.info import router as info_router
 from news_sentiment_api.app.routers import analyzer as sentiment_router
 from openai_api.router import router as openai_router
 from ml_stock_api.predict import router as ml_router
+from openai_api.router import limiter
 
 app = FastAPI(
     title="かぶちゃんAPI",
@@ -16,7 +18,10 @@ app = FastAPI(
     version="1.0.0"
 )
 
+app.state.limiter = limiter
 # CORS設定（必要に応じて変更）
+app.add_middleware(SlowAPIMiddleware)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # セキュリティ上制限するならここを明示的に
