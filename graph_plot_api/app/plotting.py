@@ -55,9 +55,7 @@ def plot_chart(
     2, 1, figsize=(12, 8), sharex=True,
     gridspec_kw={'height_ratios': [3, 1]}
     )
-    
-    ax1.grid(True)
-    ax2.grid(True)
+
 
     
 
@@ -145,6 +143,10 @@ def plot_chart(
         ax1.tick_params(labelbottom=True)
         ax1.set_xlabel("日付",fontproperties=jp_font)
         ax1.tick_params(axis="x", labelrotation=45)
+    else:
+        ax2.grid(True)
+
+    ax1.grid(True)
 
     fig.tight_layout()
 
