@@ -25,12 +25,8 @@ def analyze_yahoo_business():
     avg = sum(scores) / len(scores)
     rounded = round(avg)
 
-    # -1, 0, +1 のどれかをランダムで加える
-    random_bias = random.choice([-1, 0, 1])
-    adjusted = rounded + random_bias
-
     # スコアは 0〜5 の範囲に制限
-    final_score = max(0, min(5, adjusted))
+    final_score = max(0, min(5, rounded))
 
     return {
         "representative_score": final_score

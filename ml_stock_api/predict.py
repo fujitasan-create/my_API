@@ -19,7 +19,7 @@ def predict_stock(
     threshold: float = Query(0.25, ge=0.0, le=1.0, description="予測のしきい値（0〜1）")
 ):
     try:
-        df = yf.download(ticker, start="2022-01-01", end="2025-06-13")
+        df = yf.download(ticker, period="5y")
         if df.empty:
             raise HTTPException(status_code=404, detail="株価データが見つかりません")
 
