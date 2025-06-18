@@ -55,6 +55,9 @@ def plot_chart(
     2, 1, figsize=(12, 8), sharex=True,
     gridspec_kw={'height_ratios': [3, 1]}
     )
+    
+    ax1.grid(True)
+    ax2.grid(True)
 
     
 
