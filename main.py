@@ -13,7 +13,7 @@ from graph_plot_api.app import search as search_router
 from graph_plot_api.app.info import router as info_router
 from news_sentiment_api.app.routers import analyzer as sentiment_router
 from openai_api.router import router as openai_router
-from ml_stock_api.predict import router as ml_router
+from ml_stock_api import router as ml_router
 from openai_api.router import limiter
 
 app = FastAPI(
